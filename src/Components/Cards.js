@@ -5,6 +5,7 @@ import './style.css'
 import { useDispatch } from "react-redux";
 import {ADD} from '../Components/redux/actions/action'
 
+
 function Cards() {
 
 const [data,setData] = useState(CardsData)
@@ -17,14 +18,16 @@ const send = (e)=> {
 dispatch(ADD(e))
 }
 
-  return (
-    
+return (
+
+
 <div className="container mt-3">
 
+
+
 <h2 className="text-center">AddToCart Project</h2>
-    
-    <div className="row d-flex justify-content-center align-items-center">
- {data.map((items,key)=> {
+<div className="row d-flex justify-content-center align-items-center">
+{data.map((items,key)=> {
 return(
 <>
 

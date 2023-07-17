@@ -23,8 +23,8 @@ setAnchorEl(null);
 };
 
 const getdata = useSelector((state) => state.CartReducer.carts);
-console.log(getdata);
 
+console.log(getdata);
 return (
 <div>
 <Navbar bg="dark" data-bs-theme="dark" style={{ height: "60px" }}>

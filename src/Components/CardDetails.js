@@ -1,17 +1,44 @@
-import React from "react";
+import React, { useEffect ,useState} from "react";
 import Table from "react-bootstrap/Table";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 function CardDetails() {
-  return (
-    <>
-      <div className="container mt-2">
-        <h2 className="text-center">Items Detail Page</h2>
 
-        <section className="container mt-3">
+const [data,setData] = useState([]);
+const {id} = useParams()
+// console.log(id);
+const getdata = useSelector((state) => state.CartReducer.carts);
+console.log(getdata);
+
+const compare = (e)=> {
+let compareData = getdata.filter((e)=> {
+return e.id === id
+})
+console.log(compareData);
+setData(compareData);
+}
+
+useEffect(()=> {
+compare()
+},[id])
+
+
+return (
+    <>
+<div className="container mt-2">
+<h2 className="text-center">Items Detail Page</h2>
+
+<section className="container mt-3">
           <div className="iteamsdetails">
-            <div className="items_img">
+            {
+data.map((element)=> {
+return(
+
+<>
+<div className="items_img">
               <img
                 alt=""
-                src="https://b.zmtcdn.com/data/pictures/9/18857339/8f53919f1175c08cf0f0371b73704f9b_o2_featured_v2.jpg?output-format=webp"
+src={element.imgdata}
               />
             </div>
 
@@ -20,13 +47,13 @@ function CardDetails() {
                 <tr>
                   <td>
                     <p>
-                      <strong>Resturant</strong>:Massala Theorry
+                      <strong>Resturant</strong>:{element.rname}
                     </p>
                     <p>
-                      <strong>Price</strong>:₹300
+                      <strong>Price</strong>:₹{element.price}
                     </p>
                     <p>
-                      <strong>Dishes</strong>: North Indian Biryani ,Mughlai
+                      <strong>Dishes</strong>: {element.address}
                     </p>
 
                     <p>
@@ -42,15 +69,22 @@ Order Review:</strong><span >
                     style={{color:"red",cursor:"pointer",fontSize:"20"}}
                     ></i></span></p>
 
+
                   </td>
                 </tr>
               </Table>
             </div>
-          </div>
-        </section>
-      </div>
-    </>
-  );
+</>
+)
+})
+}
+
+
+</div>
+</section>
+</div>
+</>
+);
 }
 
 export default CardDetails;

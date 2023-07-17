@@ -6,13 +6,14 @@ import CardDetails from './Components/CardDetails';
 import {Routes,Route} from 'react-router-dom'
 function App() {
 
+
 return (
 
 <>
 <Header/>
 <Routes>
 <Route path='/'  element={<Cards/>}/>
-<Route path='/cart'  element={<CardDetails/>}/>
+<Route path='/cart/:id'  element={<CardDetails/>}/>
 
 
 </Routes>

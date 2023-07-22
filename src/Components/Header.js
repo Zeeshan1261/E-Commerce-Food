@@ -29,7 +29,7 @@ return (
 <div>
 <Navbar bg="dark" data-bs-theme="dark" style={{ height: "60px" }}>
 <Container>
-<NavLink className={"text-decoration-none text-light mx-3"} to="/" href="#home " >Add To Cart</NavLink>
+<NavLink className={"text-decoration-none text-light mx-3"} to="/" href="#home">Add To Cart</NavLink>
           
 <Nav className="me-auto">
              
@@ -77,7 +77,7 @@ return (
 <td>
 <NavLink to={`/cart/${e.id}`}>
 <img alt="cart-productImage" src={e.imgdata} style={{ width: "5rem", height: "5rem" }}/>
-</NavLink>
+</NavLink>  
 </td>
 <td>
 <p>{e.rname}</p></td> 

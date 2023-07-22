@@ -5,7 +5,8 @@ import { useSelector } from "react-redux";
 function CardDetails() {
 
 const [data,setData] = useState([]);
-const {id} = useParams()
+const {id} = useParams();
+
 // console.log(id);
 const getdata = useSelector((state) => state.CartReducer.carts);
 console.log(getdata);
@@ -29,10 +30,13 @@ return (
 <h2 className="text-center">Items Detail Page</h2>
 
 <section className="container mt-3">
-          <div className="iteamsdetails">
-            {
+
+<div className="iteamsdetails">
+
+{
 data.map((element)=> {
 return(
+
 
 <>
 <div className="items_img">
